@@ -47,3 +47,6 @@ exhibit2b = Exhibit.new({
   })
 
 exhibit2b.save()
+
+binding.pry
+nil
