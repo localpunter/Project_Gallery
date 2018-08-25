@@ -17,7 +17,7 @@ class Artist
     (
       $1
     )
-    RETURNING *"
+    RETURNING *;"
     values = [@name]
     artist_data = SqlRunner.run(sql, values)
     @id = artist_data.first()['id'].to_i
@@ -25,21 +25,40 @@ class Artist
 
   def update()
     sql = "UPDATE artists SET (name)
-    = $1 WHERE id = $2"
+    = $1 WHERE id = $2;"
     values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
   def delete()
     sql = "DELETE FROM artists WHERE id = $1
-    values = [@id]"
+    values = [@id];"
     SqlRunner.run(sql, values)
   end
 
-  # def exhibits()
-  #   sql = SELECT * FROM
-  #
-  # end
+  def exhibits()
+    sql = "SELECT * FROM exhibits
+    WHERE artist_id = $1;"
+
+  end
+
+  def self.all()
+    sql = "SELECT * FROM artists;"
+    artists = SqlRunner.run(sql)
+    return artists.map { |hash| Artist.new( hash ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM artists
+    WHERE id = $1;"
+
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM artists;"
+    SqlRunner.run(sql)
+
+  end
 
 
 end

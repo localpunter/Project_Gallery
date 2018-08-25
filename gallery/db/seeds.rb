@@ -2,8 +2,8 @@ require_relative ('../models/artist.rb')
 require_relative ('../models/exhibit.rb')
 require ('pry-byebug')
 
-# Artist.delete_all()
-# Exhibit.delete_all()
+Artist.delete_all()
+Exhibit.delete_all()
 
 artist1 = Artist.new({
   "name" => "artist1"
@@ -23,7 +23,7 @@ exhibit1a = Exhibit.new({
   "artist_id" => artist1.id
   })
 
-# exhibit1a.save()
+exhibit1a.save()
 
 exhibit1b = Exhibit.new({
   "title" => "exhibit1b",
@@ -31,7 +31,7 @@ exhibit1b = Exhibit.new({
   "artist_id" => artist1.id
   })
 
-# exhibit1b.save()
+exhibit1b.save()
 
 exhibit2a = Exhibit.new({
   "title" => "exhibit2a",
@@ -39,7 +39,7 @@ exhibit2a = Exhibit.new({
   "artist_id" => artist2.id
   })
 
-# exhibit2a.save()
+exhibit2a.save()
 
 exhibit2b = Exhibit.new({
   "title" => "exhibit2b",
@@ -47,7 +47,7 @@ exhibit2b = Exhibit.new({
   "artist_id" => artist2.id
   })
 
-# exhibit2b.save()
+exhibit2b.save()
 
 binding.pry
 nil
