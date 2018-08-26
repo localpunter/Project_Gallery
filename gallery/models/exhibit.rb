@@ -6,7 +6,7 @@ class Exhibit
 
 
   def initialize (options)
-    @id = options['id'].to_i
+    @id = options['id'].to_i if options['id']
     @title = options['title']
     @category = options['category']
     @artist_id = options['artist_id'].to_i
@@ -51,7 +51,7 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
-  
+
 
   def self.all()
     sql = "SELECT * FROM exhibits;"
