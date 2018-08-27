@@ -20,6 +20,11 @@ get '/artists/:id' do #show
   erb( :"artist/show")
 end
 
+get '/artist/:id/edit' do #edit
+  @artist = Artist.find(params[:id])
+  erb(:"artist/edit")
+end
+
 
 post '/artists/:id' do # update
   Artist.new( params ).update
