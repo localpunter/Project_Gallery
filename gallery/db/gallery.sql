@@ -10,5 +10,5 @@ CREATE TABLE exhibits (
   id serial4 primary key,
   title VARCHAR(255),
   category VARCHAR(255),
-  artist_id INT8 references artists(id)
+  artist_id INT4 references artists(id) ON DELETE CASCADE
 );

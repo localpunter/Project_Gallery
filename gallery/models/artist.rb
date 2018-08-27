@@ -36,6 +36,17 @@ class Artist
     SqlRunner.run(sql, values)
   end
 
+  # def exhibits()
+  #   sql = "SELECT artists.name, exhibits.title, exhibits.category FROM artists
+	#         INNER JOIN exhibits
+	#         ON artists.id = exhibits.artist_id
+  #         WHERE artist_id = $1;"
+  #   # binding.pry
+  #   values = [@id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map { |exhibit| Exhibit.new(exhibit) }
+  # end
+
   def exhibits()
     sql = "SELECT * FROM exhibits
     WHERE artist_id = $1;"
@@ -57,12 +68,20 @@ class Artist
     WHERE id = $1;"
     values = [id]
     results = SqlRunner.run(sql, values)
+    # binding.pry
     return Artist.new(results.first)
   end
 
   def self.delete_all()
     sql = "DELETE FROM artists;"
     SqlRunner.run(sql)
+  end
+
+  def self.destroy(id)
+    sql = "DELETE FROM artists
+    WHERE id = $1;"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
 end
