@@ -5,17 +5,17 @@ require_relative( '../models/artist.rb' )
 also_reload('./models/*')
 
 
-get '/artists' do #index
+get '/artist' do #index
   @artist = Artist.all()
   erb ( :"artist/index")
 end
 
-get '/artists/new' do #new
+get '/artist/new' do #new
   erb( :"artist/new" )
 end
 
 # binding.pry
-get '/artists/:id' do #show
+get '/artist/:id' do #show
   @artist = Artist.find(params['id'].to_i)
   erb( :"artist/show")
 end
@@ -26,7 +26,7 @@ get '/artist/:id/edit' do #edit
 end
 
 
-post '/artists/:id' do # update
+post '/artist/:id' do # update
   Artist.new( params ).update
-  redirect to '/artists'
+  redirect to '/artist'
 end

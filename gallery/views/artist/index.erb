@@ -1,12 +1,5 @@
-<h1>Artists</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-  <% for artist in @artist %>
-  <tr>
-    <td><a href="/artists/<%= artist.id %>"><%= artist.name %></a></td>
-  </tr>
-  <% end %>
-</table>
+<% @artist.each do |artist| %>
+  <p>Name: <%= artist.name() %></p>
+  <p><a href="/artist/<%= artist.id %>">More details</a></p>
+  <hr />
+<% end %>
