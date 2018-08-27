@@ -36,3 +36,8 @@ post '/artist/:id' do # update
   Artist.new( params ).update
   redirect to '/artist'
 end
+
+post '/artist/:id/delete' do #delete
+  Artist.destroy(params[:id])
+  redirect to '/artist'
+end

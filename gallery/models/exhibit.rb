@@ -56,7 +56,7 @@ class Exhibit
   def self.all()
     sql = "SELECT * FROM exhibits;"
     exhibits = SqlRunner.run(sql)
-    return exhibits.map{ |hash| Exhibits.new(hash) }
+    return exhibits.map{ |exhibit| Exhibit.new(exhibit) }
   end
 
   def self.find(id)
@@ -64,7 +64,7 @@ class Exhibit
     WHERE id = $1;"
     values = [id]
     results = SqlRunner.run(sql, values)
-    return Exhibits.new(results.first)
+    return Exhibit.new(results.first)
   end
 
   def self.delete_all()
