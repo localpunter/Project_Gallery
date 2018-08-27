@@ -1,8 +1,8 @@
 require_relative('../db/sql_runner.rb')
+require( 'pry-byebug' )
 
 class Artist
   attr_accessor :name, :id
-
   def initialize (options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
@@ -17,7 +17,7 @@ class Artist
     (
       $1
     )
-    RETURNING *;"
+    RETURNING id;"
     values = [@name]
     artist_data = SqlRunner.run(sql, values)
     @id = artist_data.first()['id'].to_i
@@ -39,6 +39,7 @@ class Artist
   def exhibits()
     sql = "SELECT * FROM exhibits
     WHERE artist_id = $1;"
+    # binding.pry
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |exhibit| Exhibit.new(exhibit) }
@@ -47,20 +48,21 @@ class Artist
   def self.all()
     sql = "SELECT * FROM artists;"
     artists = SqlRunner.run(sql)
-    return artists.map { |hash| Artist.new( hash ) }
+    return artists.map { |artist| Artist.new( artist ) }
   end
 
   def self.find(id)
+    # binding.pry
     sql = "SELECT * FROM artists
     WHERE id = $1;"
-
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Artist.new(results.first)
   end
 
   def self.delete_all()
     sql = "DELETE FROM artists;"
     SqlRunner.run(sql)
-
   end
-
 
 end

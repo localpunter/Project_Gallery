@@ -1,9 +1,9 @@
-<h1>Artist: <%= @artist.name %> (artist)</h1>
+<h1>Artist: <%= @artist.name %> (artist) </h1>
 
 <h3>Exhibits:</h3>
 
 <ul>
   <% @artist.exhibits.each do |exhibit| %>
-  <li><%= exhibit.title %></li>
+  <li><%= exhibit.title() %></li>
   <% end %>
 </ul>

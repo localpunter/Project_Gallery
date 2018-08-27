@@ -6,11 +6,11 @@ also_reload('./models/*')
 
 
 get '/artists' do
-  @artists = Artist.all()
+  @artist = Artist.all()
   erb ( :"artist/index")
 end
-
+# binding.pry
 get '/artists/:id' do
-  @artists = Artist.find(params['id'].to_i)
+  @artist = Artist.find(params['id'].to_i)
   erb( :"artist/show")
 end
