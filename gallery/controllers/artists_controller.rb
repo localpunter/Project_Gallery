@@ -31,7 +31,6 @@ get '/artist/:id/edit' do #edit
   erb(:"artist/edit")
 end
 
-
 post '/artist/:id' do # update
   Artist.new( params ).update
   redirect to '/artist'

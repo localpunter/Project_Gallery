@@ -7,3 +7,9 @@
   <li><%= exhibit.title() %></li>
   <% end %>
 </ul>
+
+<p><a href="/artist/<%= @artist.id %>/edit">Edit Artist</a></p>
+
+<form method="post" action="/artist/<%= @artist.id %>/delete">
+  <input type="submit" value="Delete Artist"/>
+</form>
