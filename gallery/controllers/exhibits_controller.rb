@@ -35,7 +35,7 @@ post '/exhibit/:id' do #update
   redirect to '/exhibit'
 end
 
-post '/exhibit/:id/delete' do
+post '/exhibit/:id/delete' do #delete
   Exhibit.destroy(params[:id])
   redirect to '/exhibit'
 

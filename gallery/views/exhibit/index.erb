@@ -1,0 +1,12 @@
+<h1>Exhibits</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% for exhibit in @exhibit %>
+  <tr>
+    <td><a href="/exhibit/<%= exhibit.id %>"><%= exhibit.title %></a></td>
+  </tr>
+  <% end %>
+</table>
