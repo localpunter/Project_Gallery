@@ -1,4 +1,4 @@
-<p>Please amend the fields below then click Edit Exhibit</p>
+<p>Please amend the fields below then click 'Edit Exhibit'</p>
 
 <form method="post" action="/exhibit/<%= @exhibit.id %>">
   <label for="title">Title:</label>
@@ -14,6 +14,7 @@
     <option <%= "selected" if @exhibit.category == "Painting"%> value="Painting">Painting</option>
     <option <%= "selected" if @exhibit.category == "Sculpture"%> value="Sculpture">Sculpture</option>
     <option <%= "selected" if @exhibit.category == "Science and Technology"%> value="Science and Technology">Science and Technology</option>
+    <option <%= "selected" if @exhibit.category == "Natural World"%> value="Natural World">Natural World</option>
   </select>
 
   <label>

@@ -53,9 +53,9 @@ class Exhibit
 
   def artist()
     sql = "SELECT artists.name FROM artists
-	INNER JOIN exhibits
-	ON artists.id = exhibits.artist_id
-  WHERE exhibits.id = $1;"
+	        INNER JOIN exhibits
+	        ON artists.id = exhibits.artist_id
+          WHERE exhibits.id = $1;"
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |artist| Artist.new(artist) }
