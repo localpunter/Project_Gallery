@@ -14,7 +14,7 @@ get '/artist/new' do #new
   erb( :"artist/new" )
 end
 
-# binding.pry
+
 get '/artist/:id' do #show
   @artist = Artist.find(params['id'].to_i)
   erb( :"artist/show")
@@ -31,7 +31,7 @@ get '/artist/:id/edit' do #edit
   erb(:"artist/edit")
 end
 
-post '/artist/:id' do # update
+post '/artist/:id' do #update
   Artist.new( params ).update
   redirect to '/artist'
 end

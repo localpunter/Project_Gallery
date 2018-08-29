@@ -1,3 +1,5 @@
+<p>Please fill out the fields below then click Add Exhibit</p>
+
 <form method="post" action="/exhibit">
   <label for="title">Title:</label>
   <input
@@ -13,5 +15,14 @@
     <option value="Science and Technology">Science and Technology</option>
   </select>
 
-  <input type="submit" value="New Exhibit">
+  <label>
+    Select an artist:
+    <select name="artist_id">
+      <% for artist in @artists %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Add Exhibit">
 </form>

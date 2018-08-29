@@ -1,4 +1,7 @@
 <p>Your addition was successful!</p>
-<p>New Name: <%= @artist.name() %></p>
+<p>New Artist: <%= @artist.name() %></p>
 
-<p>
+
+<form method="get" action="/artist">
+  <input type="submit" value="Back to artists"/>
+</form>

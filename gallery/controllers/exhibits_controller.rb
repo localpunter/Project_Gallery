@@ -11,6 +11,7 @@ get '/exhibit' do #index
 end
 
 get '/exhibit/new' do #new
+  @artists = Artist.all
   erb(:"exhibit/new")
 end
 
@@ -28,6 +29,7 @@ end
 
 get '/exhibit/:id/edit' do #edit
   @exhibit = Exhibit.find(params[:id])
+  @artists = Artist.all
   erb(:"exhibit/edit")
 end
 
@@ -37,7 +39,8 @@ post '/exhibit/:id' do #update
 end
 
 post '/exhibit/:id/delete' do #delete
-  Exhibit.destroy(params[:id])
+  exhibit = Exhibit.find(params[:id])
+  exhibit.delete()
   redirect to '/exhibit'
 
 end

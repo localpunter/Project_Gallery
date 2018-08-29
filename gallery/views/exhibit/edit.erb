@@ -1,0 +1,29 @@
+<p>Please amend the fields below then click Edit Exhibit</p>
+
+<form method="post" action="/exhibit/<%= @exhibit.id %>">
+  <label for="title">Title:</label>
+  <input
+  type="text"
+  name="title"
+  id="title"
+  value="<%= @exhibit.title %>"
+  />
+
+  <label for="category-select">Select a category:</label>
+  <select id="category-select" name="category" <%= @exhibit.category %>>
+    <option <%= "selected" if @exhibit.category == "Painting"%> value="Painting">Painting</option>
+    <option <%= "selected" if @exhibit.category == "Sculpture"%> value="Sculpture">Sculpture</option>
+    <option <%= "selected" if @exhibit.category == "Science and Technology"%> value="Science and Technology">Science and Technology</option>
+  </select>
+
+  <label>
+    Select an artist:
+    <select name="artist_id" <%= @exhibit.artist_id %>>
+      <% for artist in @artists %>
+      <option <%= "selected" if @exhibit.artist_id == artist.id %> value="<%= artist.id %>"><%= artist.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Edit Exhibit">
+</form>
