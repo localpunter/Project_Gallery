@@ -21,32 +21,32 @@ artist2 = Artist.new({
 artist2.save()
 
 category1 = Category.new({
-  "genre" => "painting"
+  "genre" => "Painting"
   })
 
-  category1.save()
+category1.save()
 
-  category2 = Category.new({
-    "genre" => "sculpture"
-    })
+category2 = Category.new({
+  "genre" => "Sculpture"
+  })
 
-    category2.save()
+category2.save()
 
-    category3 = Category.new({
-      "genre" => "Science and Technology"
-      })
+category3 = Category.new({
+  "genre" => "Science and Technology"
+  })
 
-      category3.save()
+category3.save()
 
-      category4 = Category.new({
-        "genre" => "Natural World"
-        })
+category4 = Category.new({
+  "genre" => "Natural World"
+  })
 
-        category4.save()
-        
+category4.save()
+
 exhibit1a = Exhibit.new({
   "title" => "exhibit1a",
-  "category_id" => category1.id,
+  "category_id" => category3.id,
   "artist_id" => artist1.id
   })
 
@@ -63,7 +63,7 @@ exhibit1b.save()
 
 exhibit2a = Exhibit.new({
   "title" => "exhibit2a",
-  "category_id" => category2.id,
+  "category_id" => category4.id,
   "artist_id" => artist2.id
   })
 

@@ -26,10 +26,24 @@ class Category
   end
 
   def update()
-    sql = "UPDATE category SET genre
+    sql = "UPDATE categories SET genre
     = $1 WHERE id = $2;"
     values = [@genre, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM categories;"
+    category = SqlRunner.run(sql)
+    return category.map { |category| Category.new( category ) }
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM categories
+    WHERE id = $1;"
+    values = [id]
+    results = SqlRunner.run(sql, values)
+    return Artist.new(results.first)
   end
 
   def self.delete_all()

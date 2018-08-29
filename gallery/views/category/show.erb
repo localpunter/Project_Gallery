@@ -1,0 +1,14 @@
+<h1>Category: <%= @category.genre %></h1>
+
+<h2>Exhibits:</h2>
+
+<ul>
+  <% @category.exhibits.each do |exhibit| %>
+  <li><%= exhibit.title() %></li>
+  <% end %>
+</ul>
+
+
+<form method="get" action="/category/<%= @category.id %>/edit"></a></p>
+  <input type="submit" value="Edit Artist"/>
+</form>

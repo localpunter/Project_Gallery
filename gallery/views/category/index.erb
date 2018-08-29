@@ -1,0 +1,16 @@
+<h1>Categories</h1>
+
+<table>
+  <tr>
+    <th>Genre</th>
+  </tr>
+  <% for category in @category %>
+  <tr>
+    <td><a href="/category/<%= category.id %>"><%= category.genre %></a></td>
+  </tr>
+  <% end %>
+</table>
+
+<form method="get" action="/category/new">
+  <input type="submit" value="Add Category"/>
+</form>
