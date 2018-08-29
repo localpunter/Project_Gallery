@@ -2,3 +2,12 @@
 
 
 <p>Artist: <%= @exhibit.artist.name %></p>
+
+
+<form method="get" action="/exhibit/<%= @exhibit.id %>/edit"></a></p>
+  <input type="submit" value="Edit Exhibit"/>
+
+
+<form method="post" action=/<%= @exhibit.id %>/delete">
+  <input type="submit" value="Delete Exhibit"/>
+</form>

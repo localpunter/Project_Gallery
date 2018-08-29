@@ -51,7 +51,14 @@ class Exhibit
     SqlRunner.run(sql, values)
   end
 
-
+  def artist()
+    sql = "SELECT artists.name FROM artists
+	INNER JOIN exhibits
+	ON artists.id = exhibits.artist_id;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |artist| Artist.new(artist) }
+  end
 
   def self.all()
     sql = "SELECT * FROM exhibits;"
