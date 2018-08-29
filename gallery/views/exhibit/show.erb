@@ -1,7 +1,12 @@
 <h1>Exhibit: <%= @exhibit.title %></h1>
 
+<h2>Artist:</h2>
 
-<p>Artist: <%= @exhibit.artist.name %></p>
+<ul>
+  <% @exhibit.artist.each do |artist| %>
+  <li><%= artist.name() %></li>
+  <% end %>
+</ul>
 
 
 <form method="get" action="/exhibit/<%= @exhibit.id %>/edit"></a></p>

@@ -15,7 +15,8 @@ get '/exhibit/new' do #new
 end
 
 get '/exhibit/:id' do #show
-  @exhibit = Exhibit.find(params[':id'].to_i)
+  # binding.pry
+  @exhibit = Exhibit.find(params["id"].to_i)
   erb(:"exhibit/show")
 end
 
