@@ -22,7 +22,7 @@ get '/exhibit/:id' do #show
 end
 
 post '/exhibit' do #create
-  @exhibit = exhibit.new(params)
+  @exhibit = Exhibit.new(params)
   @exhibit.save
   erb(:"exhibit/create")
 end

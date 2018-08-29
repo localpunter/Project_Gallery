@@ -1,4 +1,10 @@
 <p>Your addition was successful!</p>
 <p>Title: <%= @exhibit.title() %></p>
 <p>Category: <%= @exhibit.category() %></p>
-<p>Artist: <%= @exhibit.artist_id() %></p>
+<p>Artist: <% @exhibit.artist.each do |artist| %>
+<%= artist.name() %>
+<% end %></p>
+
+<form method="get" action="/exhibit">
+  <input type="submit" value="Back to exhibits"/>
+</form>
