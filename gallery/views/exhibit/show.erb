@@ -1,6 +1,8 @@
 <h1>Exhibit: <%= @exhibit.title %></h1>
 
-<h2>Category: <%= @exhibit.category %></h2>
+<h2>Category: <% @exhibit.category.each do |category| %>
+<%= category.genre() %>
+<% end %></h2>
 
 <h3>Artist: <% @exhibit.artist.each do |artist| %>
 <%= artist.name() %>

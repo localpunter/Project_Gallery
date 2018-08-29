@@ -1,6 +1,8 @@
 <p>Your addition was successful!</p>
 <p>Title: <%= @exhibit.title() %></p>
-<p>Category: <%= @exhibit.category() %></p>
+<p>Category: <% @exhibit.category.each do |category| %>
+<%= category.genre() %>
+<% end %>%></p>
 <p>Artist: <% @exhibit.artist.each do |artist| %>
 <%= artist.name() %>
 <% end %></p>

@@ -2,13 +2,13 @@ require_relative('../db/sql_runner.rb')
 
 class Exhibit
 
-  attr_accessor :title, :category, :artist_id, :id
+  attr_accessor :title, :category_id, :artist_id, :id
 
 
   def initialize (options)
     @id = options['id'].to_i if options['id']
     @title = options['title']
-    @category = options['category']
+    @category_id = options['category_id'].to_i
     @artist_id = options['artist_id'].to_i
 
   end
@@ -16,13 +16,13 @@ class Exhibit
   def save()
     sql = "INSERT INTO exhibits
     (
-      title, category, artist_id
+      title, category_id, artist_id
     )
     values(
       $1, $2, $3
     )
     RETURNING *"
-    values = [@title, @category, @artist_id]
+    values = [@title, @category_id, @artist_id]
     exhibit_data = SqlRunner.run(sql, values)
     @id = exhibit_data.first()['id'].to_i
   end
@@ -32,7 +32,7 @@ class Exhibit
     SET
     (
       title,
-      category,
+      category_id,
       artist_id
     )
     =
@@ -40,7 +40,7 @@ class Exhibit
       $1, $2, $3
     )
     WHERE id = $4"
-    values = [@title, @category, @artist_id, @id]
+    values = [@title, @category_id, @artist_id, @id]
     SqlRunner.run( sql, values )
 
   end
@@ -59,6 +59,15 @@ class Exhibit
     values = [@id]
     results = SqlRunner.run(sql, values)
     return results.map { |artist| Artist.new(artist) }
+  end
+
+  def category()
+    sql = "SELECT * FROM exhibits
+    WHERE category_id = $1;"
+    # binding.pry
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |exhibit| Exhibit.new(exhibit) }
   end
 
   def self.all()

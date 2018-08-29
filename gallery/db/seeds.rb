@@ -1,9 +1,12 @@
 require_relative ('../models/artist.rb')
 require_relative ('../models/exhibit.rb')
+require_relative ('../models/category.rb')
 require ('pry-byebug')
 
 Artist.delete_all()
+Category.delete_all()
 Exhibit.delete_all()
+
 
 artist1 = Artist.new({
   "name" => "artist1"
@@ -17,17 +20,42 @@ artist2 = Artist.new({
 
 artist2.save()
 
+category1 = Category.new({
+  "genre" => "painting"
+  })
+
+  category1.save()
+
+  category2 = Category.new({
+    "genre" => "sculpture"
+    })
+
+    category2.save()
+
+    category3 = Category.new({
+      "genre" => "Science and Technology"
+      })
+
+      category3.save()
+
+      category4 = Category.new({
+        "genre" => "Natural World"
+        })
+
+        category4.save()
+        
 exhibit1a = Exhibit.new({
   "title" => "exhibit1a",
-  "category" => "painting",
+  "category_id" => category1.id,
   "artist_id" => artist1.id
   })
 
 exhibit1a.save()
 
+
 exhibit1b = Exhibit.new({
   "title" => "exhibit1b",
-  "category" => "sculpture",
+  "category_id" => category2.id,
   "artist_id" => artist1.id
   })
 
@@ -35,7 +63,7 @@ exhibit1b.save()
 
 exhibit2a = Exhibit.new({
   "title" => "exhibit2a",
-  "category" => "sculpture",
+  "category_id" => category2.id,
   "artist_id" => artist2.id
   })
 
@@ -43,11 +71,13 @@ exhibit2a.save()
 
 exhibit2b = Exhibit.new({
   "title" => "exhibit2b",
-  "category" => "painting",
+  "category_id" => category1.id,
   "artist_id" => artist2.id
   })
 
 exhibit2b.save()
+
+
 
 binding.pry
 nil
