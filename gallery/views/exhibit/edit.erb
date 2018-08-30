@@ -9,13 +9,15 @@
   value="<%= @exhibit.title %>"
   />
 
-  <label for="category-select">Select a category:</label>
-  <select id="category-select" name="category" <%= @exhibit.category %>>
-    <option <%= "selected" if @exhibit.category == "Painting"%> value="Painting">Painting</option>
-    <option <%= "selected" if @exhibit.category == "Sculpture"%> value="Sculpture">Sculpture</option>
-    <option <%= "selected" if @exhibit.category == "Science and Technology"%> value="Science and Technology">Science and Technology</option>
-    <option <%= "selected" if @exhibit.category == "Natural World"%> value="Natural World">Natural World</option>
-  </select>
+
+  <label>
+    Select a category:
+    <select name="category_id" <%= @exhibit.category_id %>>
+      <% for category in @categories %>
+      <option <%= "selected" if @exhibit.category_id == category.id %> value="<%= category.id %>"><%= category.genre %></option>
+      <% end %>
+    </select>
+  </label>
 
   <label>
     Select an artist:

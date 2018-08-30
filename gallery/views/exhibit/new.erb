@@ -8,12 +8,15 @@
   id="title"
   />
 
-  <label for="category-select">Select a category:</label>
-  <select id="category-select" name="category">
-    <option value="Painting">Painting</option>
-    <option value="Sculpture">Sculpture</option>
-    <option value="Science and Technology">Science and Technology</option>
-  </select>
+
+  <label>
+    Select a category:
+    <select name="category_id">
+      <% for category in @categories %>
+      <option value="<%= category.id %>"><%= category.genre %></option>
+      <% end %>
+    </select>
+  </label>
 
   <label>
     Select an artist:

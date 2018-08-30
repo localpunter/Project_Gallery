@@ -12,6 +12,7 @@ end
 
 get '/exhibit/new' do #new
   @artists = Artist.all
+  @categories = Category.all
   erb(:"exhibit/new")
 end
 
@@ -30,6 +31,7 @@ end
 get '/exhibit/:id/edit' do #edit
   @exhibit = Exhibit.find(params[:id])
   @artists = Artist.all
+  @categories = Category.all
   erb(:"exhibit/edit")
 end
 

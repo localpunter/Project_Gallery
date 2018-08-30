@@ -62,12 +62,13 @@ class Exhibit
   end
 
   def category()
-    sql = "SELECT * FROM exhibits
-    WHERE category_id = $1;"
-    # binding.pry
+    sql = "SELECT categories.genre FROM categories
+          INNER JOIN exhibits
+          ON categories.id = exhibits.category_id
+          WHERE exhibits.id = $1;"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map { |exhibit| Exhibit.new(exhibit) }
+    return results.map { |category| Category.new(category) }
   end
 
   def self.all()
