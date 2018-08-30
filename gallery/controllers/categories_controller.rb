@@ -24,3 +24,14 @@ post '/category' do #create
   @category.save()
   erb(:"category/create")
 end
+
+get '/category/:id/edit' do #edit
+  @category = Category.find(params[:id])
+  @categories = Category.all
+  erb(:"category/edit")
+end
+
+post '/category/:id' do #update
+  Category.new(params).update
+  redirect to '/category'
+end

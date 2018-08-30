@@ -1,0 +1,17 @@
+<p>Please select the new category from the dropdown then click 'Edit Exhibit'</p>
+
+<form method="post" action="/category/<%= @category.id %>">
+
+  <label>
+    Select a category:
+    <select name="category_id" <%= @category_id %>>
+      <% for category in @categories %>
+      <option<%= "selected" if @category_id == category.id %> value="<%= category.id %>"><%= category.genre %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Edit category">
+</form>
+
+<p><a href="/">Home<a/></p>
