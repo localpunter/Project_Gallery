@@ -15,6 +15,12 @@ get '/category/new' do #new
 end
 
 get '/category/:id' do #show
-  @category = Category.find(params['id'].to_i)
+  @category = Category.find(params["id"].to_i)
   erb(:"category/show")
+end
+
+post '/category' do #create
+  @category = Category.new(params)
+  @category.save()
+  erb(:"category/create")
 end

@@ -32,6 +32,14 @@ class Category
     SqlRunner.run(sql, values)
   end
 
+  def exhibits()
+    sql = "SELECT * FROM exhibits
+    WHERE category_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |exhibit| Exhibit.new(exhibit) }
+  end
+
   def self.all()
     sql = "SELECT * FROM categories;"
     category = SqlRunner.run(sql)
@@ -43,7 +51,7 @@ class Category
     WHERE id = $1;"
     values = [id]
     results = SqlRunner.run(sql, values)
-    return Artist.new(results.first)
+    return Category.new(results.first)
   end
 
   def self.delete_all()
