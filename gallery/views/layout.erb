@@ -3,14 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Museum</title>
+
     <link rel="stylesheet" type="text/css" href="/styles/structure.css">
   </head>
   <body>
-    <header><h1>Alan's Museum</h1></header>
+    <header><h1><a href="/">THE LOCAL MUSEUM</a></h1></header>
     <nav>
       <!-- Navigation goes here -->
+      <ul>
+        <li><a href="/artist">Show artists</a></li>
+        <li><a href="/artist/new">Add an artist</a></li>
+        <li><a href="/exhibit">Show exhibits</a></li>
+        <li><a href="/exhibit/new">Add an exhibits</a></li>
+        <li><a href="/category">Show categories</a></li>
+        <li><a href="/category/new">Add a category</a></li>
+      </ul>
     </nav>
     <main>
+      <section>
+        <article>
+          <h2>Welcome</h2>
+          <h3>This is a small collection of artwork</h3>
+          <h4>Open daily 9am-8pm<br/>
+              Weekends till 10pm</h4>
+          <p>Feel free to wallow in the amazing pieces.
+              You'll never leave!</p>
+        </article>
+      </section>
       <%= yield %>
     </main>
 
