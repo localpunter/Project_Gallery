@@ -2,15 +2,16 @@ DROP TABLE exhibits;
 DROP TABLE categories;
 DROP TABLE artists;
 
+CREATE TABLE categories (
+  id serial4 primary key,
+  genre VARCHAR(255)
+);
+
 CREATE TABLE artists (
   id serial4 primary key,
   name VARCHAR(255)
 );
 
-CREATE TABLE categories (
-  id serial4 primary key,
-  genre VARCHAR(255)
-);
 
 CREATE TABLE exhibits (
   id serial4 primary key,

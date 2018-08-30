@@ -11,7 +11,6 @@ get '/category' do #index
 end
 
 get '/category/new' do #new
-  @category = Category.all
   erb(:"category/new")
 end
 

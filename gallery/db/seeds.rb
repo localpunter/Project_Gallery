@@ -1,7 +1,8 @@
 require_relative ('../models/artist.rb')
-require_relative ('../models/exhibit.rb')
 require_relative ('../models/category.rb')
+require_relative ('../models/exhibit.rb')
 require ('pry-byebug')
+
 
 Artist.delete_all()
 Category.delete_all()
