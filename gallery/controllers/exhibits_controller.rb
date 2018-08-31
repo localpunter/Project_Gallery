@@ -7,24 +7,24 @@ also_reload('./models/*')
 
 get '/exhibit' do #index
   @exhibit = Exhibit.all()
-  erb(:"exhibit/index")
+  erb(:"exhibit/index", :layout => :links)
 end
 
 get '/exhibit/new' do #new
   @artists = Artist.all
   @categories = Category.all
-  erb(:"exhibit/new")
+  erb(:"exhibit/new", :layout => :links)
 end
 
 get '/exhibit/:id' do #show
   @exhibit = Exhibit.find(params["id"].to_i)
-  erb(:"exhibit/show")
+  erb(:"exhibit/show", :layout => :links)
 end
 
 post '/exhibit' do #create
   @exhibit = Exhibit.new(params)
   @exhibit.save
-  erb(:"exhibit/create")
+  erb(:"exhibit/create", :layout => :links)
 end
 
 get '/exhibit/:id/edit' do #edit

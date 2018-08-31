@@ -52,7 +52,7 @@ category4 = Category.new({
 category4.save()
 
 exhibit1a = Exhibit.new({
-  "title" => "exhibit1a",
+  "title" => "Helecopter design",
   "category_id" => category3.id,
   "artist_id" => artist1.id
   })
@@ -61,7 +61,7 @@ exhibit1a.save()
 
 
 exhibit1b = Exhibit.new({
-  "title" => "exhibit1b",
+  "title" => "The Last Supper",
   "category_id" => category1.id,
   "artist_id" => artist1.id
   })
@@ -69,7 +69,7 @@ exhibit1b = Exhibit.new({
 exhibit1b.save()
 
 exhibit2a = Exhibit.new({
-  "title" => "exhibit2a",
+  "title" => "Melting Watch",
   "category_id" => category1.id,
   "artist_id" => artist2.id
   })
@@ -77,7 +77,7 @@ exhibit2a = Exhibit.new({
 exhibit2a.save()
 
 exhibit2b = Exhibit.new({
-  "title" => "exhibit2b",
+  "title" => "The Burning Giraffe",
   "category_id" => category1.id,
   "artist_id" => artist2.id
   })
@@ -85,7 +85,7 @@ exhibit2b = Exhibit.new({
 exhibit2b.save()
 
 exhibit3a = Exhibit.new({
-  "title" => "exhibit3a",
+  "title" => "Wives",
   "category_id" => category4.id,
   "artist_id" => artist3.id
   })

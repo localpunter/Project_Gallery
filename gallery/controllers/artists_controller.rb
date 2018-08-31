@@ -7,7 +7,7 @@ also_reload('./models/*')
 
 get '/artist' do #index
   @artist = Artist.all()
-  erb ( :"artist/index")
+  erb :"artist/index", :layout => :links
 end
 
 get '/artist/new' do #new
@@ -17,13 +17,13 @@ end
 
 get '/artist/:id' do #show
   @artist = Artist.find(params['id'].to_i)
-  erb( :"artist/show")
+  erb :"artist/show", :layout => :links
 end
 
 post '/artist' do #create
   @artist = Artist.new(params)
   @artist.save()
-  erb(:"artist/create")
+  erb :"artist/create", :layout => :links
 end
 
 get '/artist/:id/edit' do #edit
