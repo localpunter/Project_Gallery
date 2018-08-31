@@ -11,7 +11,7 @@ get '/artist' do #index
 end
 
 get '/artist/new' do #new
-  erb( :"artist/new" )
+  erb :"artist/new", :layout => :links
 end
 
 
@@ -28,7 +28,7 @@ end
 
 get '/artist/:id/edit' do #edit
   @artist = Artist.find(params[:id])
-  erb(:"artist/edit")
+  erb :"artist/edit", :layout => :links
 end
 
 post '/artist/:id' do #update
